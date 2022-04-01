@@ -13,7 +13,11 @@
     $sql .= "youPhoto varchar(255) DEFAULT NULL,";
     $sql .= "youIntro varchar(255) DEFAULT NULL,";
     $sql .= "youSite varchar(255) DEFAULT NULL,";
+    $sql .= "youcheck varchar(255) NOT NULL,"; 
     $sql .= "regTime int(20) NOT NULL,";
+    $sql .= "ImgFile varchar(100) DEFAULT NULL,";
+    $sql .= "ImgSize varchar(100) DEFAULT NULL,";
+    $sql .= "ImgDelete int(10) NOT NULL,";
     $sql .= "PRIMARY KEY (memberID)";
     $sql .= ") charset=utf8;";
 

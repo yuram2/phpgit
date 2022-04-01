@@ -38,6 +38,10 @@
         $youName = $_POST['youName'];
         $youBirth = $_POST['youBirth'];
         $youPhone = $_POST['youPhone'];
+        $youcheck = $_POST['check'];
+        $ImgFile = $_POST['ImgFile'];
+        $ImgSize = $_POST['ImgSize'];
+        $ImgDelete = $_POST['ImgDelete'];
         $regTime = time();
 
         //echo $youEmail, $youPass, $youPassC, $youName, $youBirth, $youPhone, $regTime;
@@ -52,7 +56,7 @@
         
         //회원가입
         if($isEmailCheck = true && $isPhoneCheck = true){
-            $sql = "INSERT INTO Member(youEmail, youPass, youName, youBirth, youPhone, regTime) VALUE('$youEmail', '$youPass', '$youName', '$youBirth', '$youPhone', '$regTime')";
+            $sql = "INSERT INTO Member(youEmail, youPass, youName, youBirth, youPhone, youcheck, regTime,ImgFile,ImgSize,ImgDelete) VALUE('$youEmail', '$youPass', '$youName', '$youBirth', '$youPhone', '$youcheck', '$regTime', '0', '0', '1')";
             $result = $connect -> query($sql);
 
             if($result){

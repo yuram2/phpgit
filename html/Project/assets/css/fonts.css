@@ -227,3 +227,58 @@
          url('https://cdn.jsdelivr.net/gh/webfontworld/GothicA1/GothicA1-Black.ttf') format("truetype");
     font-display: swap;
 }
+@font-face {
+    font-family: 'JSDongkang';
+    font-weight: 400;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/jeongseon/JSDongkang-Regular.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/jeongseon/JSDongkang-Regular.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/jeongseon/JSDongkang-Regular.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/jeongseon/JSDongkang-Regular.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/jeongseon/JSDongkang-Regular.ttf') format("truetype");
+    font-display: swap;
+} 
+@font-face {
+    font-family: 'JSDongkang';
+    font-weight: 700;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/jeongseon/JSDongkang-Bold.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/jeongseon/JSDongkang-Bold.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/jeongseon/JSDongkang-Bold.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/jeongseon/JSDongkang-Bold.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/jeongseon/JSDongkang-Bold.ttf') format("truetype");
+    font-display: swap;
+} 
+@font-face {
+    font-family: 'KOHIBaeum';
+    font-weight: normal;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/kohi/KOHIBaeum.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/kohi/KOHIBaeum.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/kohi/KOHIBaeum.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/kohi/KOHIBaeum.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/kohi/KOHIBaeum.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'LeferiBase';
+    font-weight: 400;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/leferi/LeferiBaseRegular.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/leferi/LeferiBaseRegular.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/leferi/LeferiBaseRegular.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/leferi/LeferiBaseRegular.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/leferi/LeferiBaseRegular.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'LeferiBase';
+    font-weight: 700;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/leferi/LeferiBaseBold.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/leferi/LeferiBaseBold.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/leferi/LeferiBaseBold.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/leferi/LeferiBaseBold.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/leferi/LeferiBaseBold.ttf') format("truetype");
+    font-display: swap;
+}

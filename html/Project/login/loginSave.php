@@ -34,7 +34,7 @@
         // }
 
         // 데이터 가져오기 -> 유효성 검사(X) -> 데이터 불러오기
-        $sql = "SELECT memberID, youName, youEmail,youPass FROM teamMember WHERE youEmail ='$youEmail' AND youPass ='$youPass';";
+        $sql = "SELECT memberID, youName, youEmail,youPass FROM Member WHERE youEmail ='$youEmail' AND youPass ='$youPass';";
         $result = $connect -> query($sql);
 
         if($result){
@@ -52,7 +52,7 @@
                 $_SESSION['youEmail'] = $memberInfo['youEmail'];
 
                 // 메인으로
-                Header("Location:../page/main.php");
+                Header("Location:../pages/main.php");
 
                 echo $memberID; 
                 // echo $memberInfo;

@@ -23,7 +23,7 @@
     <?php
         include "../include/header.php";
     ?>
-    <!-- //header -->
+    <!-- //header --> 
 
     <main id="contents">
         <h2 class="ir_so">컨텐츠 영역</h2>

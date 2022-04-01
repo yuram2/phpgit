@@ -6,9 +6,10 @@
     border-bottom: 1px solid #eee;
     display: flex;
     justify-content: space-around;
-    min-width: 1200px;
+    min-width: 1200px; 
     white-space: nowrap;
     height: 80px;
+    background: #fff;
 }
 #header .logo {
     flex: 0 0 20%;
@@ -60,7 +61,6 @@
     padding: 5px 18px;
 }
 #header .member a {
-    display: inline-block;
     padding: 9px 22px;
     color: #FE9124;
     margin-top: 10px;
@@ -72,19 +72,58 @@
 #header .member .setting {
     border: 0;
 }
-#header .member .setting svg {
-    vertical-align: -8px;
+#header .member .setting span {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    vertical-align: -16px;
     padding-right: 5px;
+    background-size: cover;
+    border-radius: 50%;
 }
-
-
+.findID {
+    padding: 9px 22px;
+    color: #000;
+    margin-top: 10px;
+    font-size: 25px;
+    margin-left: -25px;
+    font-weight: 700;
+    line-height: 1.6;
+}
+.findID em {
+    color: #FE9124;
+    font-size: 30px;
+    padding: 10px 0; 
+}
+.already {
+}
+.already a {
+    background: #FE9124;
+    padding: 20px 0;
+    display: block;
+    width: 70%;
+    transition: all 0.3s;
+    cursor: pointer;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 30px;
+}
+.already a:hover {
+    color:#FE9124;
+    background: #fff;
+}
+body {
+    position: relative;
+}
 .main_image {
     height: 600px;
     align-items: center;
+   
 }
 
 /* footer */
-#footer {
+/* #footer {
     width: 100%;
     height: 682px;
     font-family: 'GmarketSans';
@@ -165,7 +204,7 @@
 }
 .footer-sns li:nth-child(4) a {
     background-position: -150px 0;
-} 
+}  */
 
 /* Join */
 #contents h3 {
@@ -173,6 +212,18 @@
     font-family: 'Uto123RF';
     text-align: center;
     margin-bottom: 30px;
+}
+#contents .loginh3 {
+    font-size: 100px;
+    font-family: 'Uto123RF';
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+#contents h5 {
+    font-size: 45px;
+    font-family: 'Uto123RF';
+    margin-bottom: 20px;
 }
 #contents em {
     color: #FE9124;
@@ -182,36 +233,41 @@
 }
 .member-form {
     max-width: 600px;
-    background: #f5f5f5;
+    background: #F5F5F5;
     margin: 0 auto;
     padding: 50px;
 }
-
+.member-form2 {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 50px;
+}
 .member-form .check {
     display: block;
-    margin-bottom: 30px;    
+    margin-bottom: 30px;
 }
 .member-form .check input {
     width: 20px;
-    height: 20px;    
+    height: 20px;
 }
 .member-form .check label {
     margin-right: 30px;
     font-size: 20px;
 }
 .join-intro {
-    height: 200px;
-    border: 1px solid #dfdfdf;
-    margin-bottom: 100px;
+    height: 300px;
+    border: 1px solid #DFDFDF;
     position: relative;
     text-align: center;
+    margin-bottom: 50px;
 }
 .join-intro .face {
-    width: 180px;
-    height: 180px;
+    width: 270px;
+    height: 200px;
+    border-radius: 20px;
     margin: 50px auto 0 auto;
-    border-radius: 50%;
-    background: #b7b7b7;
+    background: #B7B7B7; 
+    background-size: cover;
 }
 .join-intro .change {
     padding-top: 10px;
@@ -219,27 +275,55 @@
 .join-intro .intro {
     padding-top: 20px;
 }
+.join-info {
+    margin-top: 150px;
+    margin-bottom: 100px;
+}
+.join-info li{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.join-info li strong {
+    width: 20%;
+    font-weight: normal;
+    background: #FE9124;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    text-align: center;
+    color: #fff;
+}
+.join-info li span {
+    width: 75%;
+    display: inline-block;
+    padding: 10px 0;
+    background: #fff;
+    border-bottom: 1px solid #c6c6c6;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding-left: 10px;
+}
 .join-btn {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .join-btn a {
     display: inline-block;
-    text-align: center;
     font-size: 16px;
-    background: #eee;
+    text-align: center;
+    background: #FE9124;
+    color: #fff;
     padding: 15px;
     box-sizing: border-box;
     width: 49%;
     transition: all 0.3s;
 }
 .join-btn a:hover {
-    box-shadow: inset 0 0 0 2px #222;
+    box-shadow: inset 0 0 02px #222;
     background: #fff;
+    color: #FE9124;
 }
-
 .join-box label {
-    display: block;
     font-size: 14px;
     margin-bottom: 5px;
 }
@@ -247,12 +331,8 @@
     border: 1px solid #dfdfdf;
     width: 100%;
     padding: 15px;
-    height: 70px;
+    height: 50px;
     margin-bottom: 30px;
-    font-size: 18px;
-}
-.join-box .modify input {
-    background: #dfdfdf;
 }
 .join-box .overlap {
     display: flex;
@@ -267,19 +347,12 @@
     margin-bottom: 0px;
 }
 .join-box .overlap .test {
-    width: 26%;
-    background: #333;
+    width: 30%;
+    background: #f5f5f5;
     display: inline-block;
     text-align: center;
-    height: 70px;
-    line-height: 70px;
-    color: #fff;
-    transition : all 0.3s;
-}
-.join-box .overlap .test:hover {
-    box-shadow: inset 0 0 0 2px #333;
-    background: #fff;
-    color: #333;
+    height: 50px;
+    line-height: 50px;
 }
 .join-box .overlap .comment {
     width: 100%;
@@ -292,6 +365,79 @@
     margin-bottom: 0px;
 }
 .join-box .basic .comment {
+    width: 100%;
+    font-size: 14px;
+    padding-top: 10px;
+    color: red;
+    margin-bottom: 20px;
+}
+.join-box .modify input {
+    background: #fff;
+}
+.input_box label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.input_box input {
+    border: 1px solid #DFDFDF;
+    width: 100%;
+    padding: 15px;
+    height: 70px;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+.c_box {
+    margin-bottom: 40px;
+}
+.c_box input {
+    width: 20px;
+    height: 20px;
+}.c_box label {
+    font-size: 20px;
+    margin-right: 30px;
+}
+.input_box.modify input {
+    background: #DFDFDF;
+}
+.input_box.overlap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.input_box.overlap label {
+    width: 100%;
+}
+.input_box.overlap input {
+    width: 70%;
+    margin-bottom: 0px;
+}
+.input_box.overlap .test {
+    width: 26%;
+    background: #333;
+    display: inline-block;
+    text-align: center;
+    height: 70px;
+    line-height: 70px;
+    color: #fff;
+    transition : all 0.3s;
+}
+.input_box.overlap .test:hover {
+    box-shadow: inset 0 0 0 2px #333;
+    background: #fff;
+    color: #333;
+}
+.input_box.overlap .comment {
+    width: 100%;
+    font-size: 14px;
+    padding-top: 10px;
+    color: red;
+    margin-bottom: 20px;
+}
+.input_box.basic input {
+    margin-bottom: 0px;
+}
+.input_box.basic .comment {
     width: 100%;
     font-size: 14px;
     padding-top: 10px;
@@ -313,6 +459,46 @@
 .join-submit:hover {
     background: #fff;
     color:#FE9124;
+}
+.find {
+    margin-top: 30px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+.find a {
+    border-radius: 50px;
+    font-size: 18px;
+    line-height: 5px;
+    color: #333;
+    padding: 5px 10px;
+    margin: 0 10px;
+    transition: all 0.3s;
+}
+.find a:hover {
+    color: #FE9124;
+}
+.imgbox {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    align-items: center;
+}
+.imgbox .img_1 {
+    background-image: url(../img/KakaoTalk.png);
+    width: 57px;
+    height: 57px;
+}
+.imgbox .img_2 {
+    background-image: url(../img/Google.png);
+    width: 57px;
+    height: 57px;
+    margin: 0 60px;
+}
+.imgbox .img_3 {
+    background-image: url(../img/Facebook.png);
+    width: 57px;
+    height: 57px;
 }
 
 /* 카드
@@ -575,14 +761,13 @@ h3 {
 }
 .search-write {
     padding: 16px 85px;
-    font-size: 17px;    
+    font-size: 17px;
     color: #fff;
     background: #000;
     margin-top: 50px;
     position: absolute;
-    top: 740px;
-    right: 0px;
-    
+    bottom: 50px;
+    right: 0px
 }
 .board__pages {
     margin-top: 100px;
@@ -651,4 +836,288 @@ h3 {
     resize: none;
     height: 400px;
     border-radius: 5px;
+}
+footer {  
+    background: #f5f5f5;
+    width: 100%;
+    height: 200px; 
+} 
+
+/* Quiz Main */
+.quiz__mainbody {
+    background-image: url(../img/quiz/quiz_bg.jpg);
+    width: 100%;
+    height: 100%;
+    background-size: cover;    
+}
+.quiz__select {
+    display: flex;
+    justify-content: center;
+    margin-top: 25vh;    
+}
+.quiz__select a {
+    font-family: 'JSDongkang';
+    font-weight: 700;
+    transition: all 0.5s;
+}
+.quiz__select a:hover {
+    transform: scale(1.1);
+    box-shadow: 5px 5px 5px 5px gray;
+}
+.quiz__select a:first-child {
+    color: #fff;
+    background: #FFCC80;
+    font-size: 80px;
+    padding: 130px 70px;
+    border-radius: 50px;
+    margin-right: 5vw;
+}
+.quiz__select a:nth-child(2) {
+    color: #fff;
+    background: #B39CD7;
+    font-size: 80px;
+    padding: 130px 70px;
+    border-radius: 50px;
+    margin-right: 5vw;
+}
+.quiz__select a:nth-child(3) {
+    color: #fff;
+    background: #4FC3F7;
+    font-size: 80px;
+    padding: 130px 30px;
+    border-radius: 50px;
+}
+
+/* OX Main */
+
+.oxstart_bg {
+    background-image: url(../img/quiz/ox_bg1.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;    
+}
+.ox_start {
+    display: flex;
+    padding-top: 30vh;
+    padding-left: 7vw;
+}
+.ox_start a {
+    font-size: 7vw;
+    border-radius: 70%;
+    padding: 7vw 3vw;
+    background: #fff;    
+    box-shadow: 0px 0px 0px 20px #DAEBF7,0px 0px 0px 40px #A259FF,0px 0px 0px 60px #0FA958,0px 0px 0px 80px #FFC700,0px 0px 0px 100px #F24E1E;
+    transition: all 0.5s;
+    margin-left: 10vw;
+    
+}
+.ox_start a:hover {
+    transform: scale(1.2);
+    color: #FFA313;
+    box-shadow: 0px 0px 0px 15px #DAEBF7,0px 0px 0px 20px #A259FF,0px 0px 0px 30px #0FA958,0px 0px 0px 40px #FFC700,0px 0px 0px 50px #F24E1E;
+}
+.oxstart_bg p {
+    font-size: 7vw;
+    float: left;
+    margin-left: 5vw;
+    color:#FFA313;
+    line-height: 150%;
+    margin-top: 20vh;
+}
+
+/* OX Quiz */
+
+.oxbody {
+    background-image: url(../img/quiz/OXQuiz_bg3.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+
+.grid {
+    padding: 50px 50px 50px 50px;
+    margin: 80px auto;
+    width: 1000px;   
+    margin-bottom: 100px;
+    background: #fafafa;
+    border: 2px solid #FFE4DD;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #cbcbcb;
+ }
+ 
+.grid h1 {
+    font-family: 'KOHIBaeum';
+    color: #333;
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 40px;
+    text-shadow: 3px 3px 3px 3px #FFA313;
+ }
+
+.grid h1 span {
+    color: #FFA313;
+}
+ 
+#question {
+    padding: 10px 2em;
+    font-size: 2em;
+    color: #666;
+    font-family: 'LeferiBase';
+ }
+ 
+#quiz {
+    text-align: center;
+ }
+ 
+#progress {
+    font-size: 20px;
+    color: #2b2b2b;
+ }
+ 
+.buttons {
+    padding: 30px 20px;
+    border-radius: 20px;
+ }
+ 
+.btn {
+    margin: 10px 120px 20px 0;
+    padding: 10px;
+    width: 300px;
+    height: 300px;
+    font-size: 170px;
+    color: #fff;
+    border: 15px solid #fff;
+    border-top-left-radius: 70px;
+    border-top-right-radius: 70px;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 70px;
+    cursor: pointer;
+    transition: all .2s;
+ }
+
+.btn:first-child {
+    background: linear-gradient(#A7D479, #038F00);}
+ 
+.btn:nth-child(2) {
+    margin-right: 0;
+    background: linear-gradient(#D74B00, #C90000);
+ }
+ 
+ .btn:first-child:hover {
+    background: #98CD63;
+    color: #000;
+ }
+ .btn:nth-child(2):hover {
+    background: #E99C75;
+    color: #000;
+ }
+
+
+ /* Sense Quiz */
+.ss_body {
+    background-image: url(../img/quiz/ssquiz_bg1.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.wrap {
+    width: 800px;
+    background: rgba(51,85,102,0.9);
+    margin: 0 auto;
+    height: inherit;
+    padding: 50px;
+    text-align: center;
+}
+.wrap h1 {
+    text-align: center;
+    font-size: 40px;    
+    color: #fff;
+}
+.wrap h1 span {
+    color: #FFA313;
+}
+#game .ss_result {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 60px;
+}
+#game #ss_score {
+    text-align: center;
+    font-size: 40px;
+    color: #fff;
+    margin-top: 50px;
+}
+#game .ss_v {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 50px;
+    color: #FFA313;
+}
+#game {
+    text-align: center;
+}
+#game #desc {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 40px;
+}
+.ss_buttons {
+    margin-top: 30px;
+    padding: 50px;
+}
+.ss_buttons .ss_btn {
+    width: 100%;
+    height: 100px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    font-size: 30px;
+    color: #fff;
+}
+.ss_buttons .ss_btn:first-child {
+    background-color: #8FBB1F;
+}
+.ss_buttons .ss_btn:first-child:hover {
+    background-color: #A5C646;
+}
+.ss_buttons .ss_btn:nth-child(2) {
+    background-color: #DD177C;
+}
+.ss_buttons .ss_btn:nth-child(2):hover {
+    background-color: #E44290;
+}
+.ss_buttons .ss_btn:nth-child(3) {
+    background-color: #F7AE00;
+}
+.ss_buttons .ss_btn:nth-child(3):hover {
+    background-color: #F9BB2D;
+}
+.ss_buttons .ss_btn:nth-child(4) {
+    background-color: #00AAE7;
+}
+.ss_buttons .ss_btn:nth-child(4):hover {
+    background-color: #33B8E6;
+}
+#ss_progress {
+    text-align: center;
+    font-family: 'GmarketSans';
+    font-weight: 500;
+    font-size: 20px;
+    color: #4FC3F7;
+}
+#ss_resetbtn {
+    font-size: 40px;
+    padding: 8px 30px;
+    border-radius: 30px;
+    color: #333;
+    background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+    box-shadow: 1px 1px 1px 1px rgba(230,230,230,0.4);
+    display: inline-block;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
 }

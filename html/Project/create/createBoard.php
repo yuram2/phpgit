@@ -1,5 +1,5 @@
 <?php
-    include "../connect/connect.php";  
+    include "../connect/connect.php";
 
     $sql = "CREATE TABLE Board (";
     $sql .= "boardID int(10) unsigned auto_increment,";
@@ -14,8 +14,8 @@
     $result = $connect -> query($sql);
 
     if($result){
-        echo "create table true";
-    } else {
-        echo "create table false";
-    }
+            echo "create table true";
+        }else{
+            echo "create table false";
+        }   
 ?>

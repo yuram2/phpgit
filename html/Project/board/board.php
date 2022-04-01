@@ -1,3 +1,7 @@
+<?php
+        include "../connect/connect.php";
+        include "../connect/session.php";
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -33,7 +37,7 @@
     ?>
     <!-- //header -->
     <div class="main_image">
-    <img src="../assets/img/bg_img1.jpg" alt="사진" style="width: 100%; height: 600px;">
+        <img src="../assets/img/bg_img1.jpg" alt="사진" style="width: 100%; height: 600px;">
     </div>
 
     <main id="contents">
@@ -79,76 +83,44 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="left">이번주 수업 내용은 여기서 확인해 보세요!</td>
-                                    <td>웹쓰</td>
-                                    <td>2022.03.18</td>
-                                    <td>50</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td class="left">웹 표준에 대한 기능이 궁금하다면 여기를 확인하세요!</td>
-                                    <td>루피</td>
-                                    <td>2022.03.19</td>
-                                    <td>20</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td class="left">이번주 숙제 내용입니다. 숙제 확인하고 꼭 제출하세요!</td>
-                                    <td>조로</td>
-                                    <td>2022.03.20</td>
-                                    <td>60</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td class="left">강의를 처음 듣는 사람은 무슨 책을 보면 도움이 되나요?</td>
-                                    <td>상디</td>
-                                    <td>2022.03.22</td>
-                                    <td>180</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td class="left">웹 디자인이 꼭 필요한가요? 코딩할 때</td>
-                                    <td>나미</td>
-                                    <td>2022.03.24</td>
-                                    <td>120</td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td class="left">이번주 쉬는 날 알려드릴꼐요! 참고하세요!</td>
-                                    <td>우솝</td>
-                                    <td>2022.03.25</td>
-                                    <td>300</td>
-                                </tr>
-                                <tr>
-                                    <td>7</td>
-                                    <td class="left">반응형 사이트, 기업 사이트 코딩 하는 방법 5분안에 알려드립니다.</td>
-                                    <td>초파</td>
-                                    <td>2022.03.26</td>
-                                    <td>70</td>
-                                </tr>
-                                <tr>
-                                    <td>8</td>
-                                    <td class="left">피그마에서 코딩하는 방법 아시나요?</td>
-                                    <td>로빈</td>
-                                    <td>2022.03.27</td>
-                                    <td>50</td>
-                                </tr>
-                                <tr>
-                                    <td>9</td>
-                                    <td class="left">면접을 잘 보는 스킬을 알려드릴께요! 꼭 확인해 보세요</td>
-                                    <td>로저</td>
-                                    <td>2022.04.01</td>
-                                    <td>110</td>
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                    <td class="left">강의 게시판을 참고하면 좋은점은 여기에서 확인하세요!</td>
-                                    <td>조즈</td>
-                                    <td>2022.04.05</td>
-                                    <td>200</td>  
-                                </tr>
+<?php
+    //b.boardID, b.boardTitle, m.youName, b.regTime, b.boardView
+    if(isset($_GET['page'])){
+        $page=(int)$_GET['page'];
+    }else{
+        $page=1;
+    }
+
+    // 게시판 불러올 갯수
+    $pageView = 10;
+    $pageLimit = ($pageView*$page)-$pageView;
+
+    // LIMIT  0, 10 --> page1
+    // LIMIT 10, 10 --> page2
+    // LIMIT 20, 10 --> page3
+    // LIMIT 30, 10 --> page4
+
+
+    $sql = "SELECT b.boardID, b.boardTitle, m.youName, b.regTime, b.boardView FROM Board b JOIN Member m ON(m.memberID = b.memberID) ORDER BY boardID DESC LIMIT {$pageLimit},{$pageView}";
+    $result = $connect -> query($sql);
+ 
+    if($result){
+        $count = $result -> num_rows;
+
+        if($count>0){
+            for($i=1; $i<=$count; $i++){
+                $boardInfo = $result -> fetch_array(MYSQLI_ASSOC);
+                echo "<tr>";
+                echo "<td>".$boardInfo['boardID']."</td>";
+                echo "<td class='left'><a href='boardView.php?boardID={$boardInfo['boardID']}'>".$boardInfo['boardTitle']."</a></td>";
+                echo "<td>".$boardInfo['youName']."</td>";
+                echo "<td>".date('Y-m-d',$boardInfo['regTime'])."</td>";
+                echo "<td>".$boardInfo['boardView']."</td>";
+                echo "</tr>";
+            }
+        }
+    }
+?>
                             </tbody>
                         </table>
                         <div>
@@ -158,16 +130,71 @@
                     
                     <div class="board__pages">
                         <ul>
-                            <li><a href="#"><<</a></li>
-                            <li><a href="#"><</a></li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">6</a></li>
-                            <li><a href="#">></a></li>
-                            <li><a href="#">>></a></li>
+<?php
+    $sql = "SELECT count(boardID) FROM Board";
+    $result = $connect -> query($sql);
+
+    $boardCount = $result -> fetch_array(MYSQLI_ASSOC);
+    $boardCount = $boardCount['count(boardID)']; 
+
+    // echo "<pre>";
+    // var_dump($boardCount);
+    // echo "</pre>";
+
+    // echo $boardCount;
+
+    // 페이지 넘버 갯수
+    // 300/10 =30
+    // 301/10 =31
+    // 306/10 =31
+    // 309/10 =31
+
+    // 총 페이지 갯수
+    $boardCount =  ceil($boardCount/$pageView);
+
+    // 현재 페이지를 기준으로 보여주고 싶은 갯수
+    $pageCurrent = 5;
+    $startPage = $page - $pageCurrent;
+    $endPage = $page + $pageCurrent;
+
+    // 처음 페이지 초기화
+    if($startPage<1) $startPage = 1;
+
+    // 마지막 페이지 초기화
+    if($endPage>=$boardCount) $endPage = $boardCount;
+
+    // 이전 페이지
+    if($page != 1){
+        $prevPage = $page -1;
+        echo "<li><a href='board.php?page={$prevPage}'>이전</a></li>";
+    }
+
+    // 처음으로 페이지
+    if($page != 1){
+        echo "<li><a href='board.php?page=1'>처음으로</a></li>";
+    }
+
+    // 1 2 3 4 5 6...
+    // 페이지 넘버 표시
+    for($i=$startPage; $i<=$endPage; $i++){
+        $active = "";
+        if($i == $page){
+            $active = "active";
+        }
+        echo "<li class='{$active}'><a href='board.php?page={$i}'>{$i}</a></li>";
+    }
+    
+    // 다음 페이지
+    if($page != $boardCount){
+        $nextPage = $page +1;
+        echo "<li><a href='board.php?page={$nextPage}'>다음</a></li>";
+    }
+
+    // 마지막 페이지
+    if($page != $boardCount){
+        echo "<li><a href='board.php?page={$boardCount}'>마지막으로</a></li>";
+    }
+?>
                         </ul>
                     </div>
                 </div>

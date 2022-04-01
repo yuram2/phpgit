@@ -1,3 +1,7 @@
+<?php
+        include "../connect/connect.php";
+        include "../connect/session.php";
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -9,7 +13,7 @@
     <?php
         include "../include/style.php"
     ?>
-    <!-- style -->   
+    <!-- style -->       
 </head>
 <body>
 <?php
@@ -21,49 +25,49 @@
         <h2 class="ir_so">컨텐츠 영역</h2>
         <section class="join-type gray">
         <h3>Quiz<em>kids</em></h2>
-            <div class="member-form">
-                    <span class="check">
-                        <input type="checkbox" name="check" id="childCheck">
-                        <label for="childCheck">학생</label>   
-                        <input type="checkbox" name="check" id="parentsCheck">
-                        <label for="parentsCheck">부모님</label>   
-                        <input type="checkbox" name="check" id="schoolCheck">
-                        <label for="schoolCheck">학교</label>                        
-                    </span>                
-                <form action="joinSave.php" name="join" method="post" onsubmit = "return joinChecks()">
+            <div class="member-form">                                 
+                <form action="joinSave.php" name="join" method="post" onsubmit ="return joinChecks()">
                     <fieldset>
                         <legend class="ir_so">회원가입 입력폼</legend>
+                        <span class="check">
+                            <input type="checkbox" name="check" id="childCheck" value="child" onclick="multicheck(this)">
+                            <label for="childCheck">학생</label>   
+                            <input type="checkbox" name="check" id="parentsCheck" value="parents" onclick="multicheck(this)">
+                            <label for="parentsCheck">부모님</label>   
+                            <input type="checkbox" name="check" id="schoolCheck" value="school" onclick="multicheck(this)">
+                            <label for="schoolCheck">학교</label>                        
+                        </span>   
                         <div class="join-box">
-                            <div class="overlap">
+                            <div class="input_box overlap">
                                 <label for="youEmail" class="ir_so">이메일</label>   
                                 <input type="text" id="youEmail" name="youEmail" placeholder="Sample@naver.com">
                                 <a href="#c" class="test" onclick="emailChecking()">중복확인</a>
                                 <p class="comment" id="youEmailComment"></p>
                             </div>
-                            <div class="overlap">
+                            <div class="input_box overlap">
                                 <label for="youNickName" class="ir_so">닉네임</label>   
                                 <input type="text" id="youNickName" name="youNickName" placeholder="닉네임을 적어주세요!">
                                 <a href="#c" class="test" onclick="nickChecking()">중복확인</a>
                                 <p class="comment" id="youNickNameComment"></p>
                             </div>
-                            <div class="basic">
+                            <div class="input_box basic">
                                 <label for="youPass" class="ir_so">비밀번호</label>   
-                                <input type="text" id="youPass" name="youPass" maxlength="20" placeholder="비밀번호를 적어주세요!">
+                                <input type="password" id="youPass" name="youPass" maxlength="20" placeholder="비밀번호를 적어주세요!">
                                 <p class="comment" id="youPassComment"></p>
                             </div>
-                            <div class="basic">
+                            <div class="input_box basic">
                                 <label for="youPassC" class="ir_so">비밀번호 재확인</label>   
-                                <input type="text" id="youPassC" name="youPassC" maxlength="20" placeholder="확인 비밀번호를 적어주세요!">
+                                <input type="password" id="youPassC" name="youPassC" maxlength="20" placeholder="확인 비밀번호를 적어주세요!">
                                 <p class="comment" id="youPassCComment"></p>
                             </div>
-                            <div class="basic">
+                            <div class="input_box basic">
                                 <label for="youName" class="ir_so">이름</label>   
                                 <input type="text" id="youName" name="youName" maxlength="5" placeholder="이름을 적어주세요!">
                                 <p class="comment" id="youNameComment"></p>
                             </div>                            
-                            <div class="basic">
+                            <div class="input_box basic">
                                 <label for="youPhone" class="ir_so">휴대폰 번호</label>   
-                                <input type="text" id="youPhone" name="youPhone" placeholder="000-0000-0000" maxlength="15">
+                                <input type="text" id="youPhone" name="youPhone" placeholder="핸드폰번호 (000-0000-0000)">
                                 <p class="comment" id="youPhoneComment"></p>
                             </div>
                         </div>
@@ -90,7 +94,7 @@
                 $.ajax({
                     type : "POST",           
                     url : "joinCheck.php",     
-                    data : {"youEmail": "youEmail", "type": "emailCheck"},     
+                    data : {"youEmail": youEmail, "type": "emailCheck"},     
                     dataType : "json",
 
                     success : function(data){ 
@@ -120,7 +124,7 @@
                 $.ajax({
                     type : "POST",           
                     url : "joinCheck.php",     
-                    data : {"youNickName": "youNickName", "type": "nickCheck"},     
+                    data : {"youNickName": youNickName, "type": "nickCheck"},     
                     dataType : "json",
 
                     success : function(data){ 
@@ -143,11 +147,15 @@
 
         function joinChecks(){
             //개인정보 동의 체크
-            let joinCheck = $("#childCheck").is(":checked");
-            if(joinCheck == false){
-                alert("체크박스를 체크해주세요");
-                return false;
-            }
+            //let joinCheck = $("#joinCheck").is(":checked");
+            //if(joinCheck == false){
+            //    alert("개인정보수집 및 동의를 체크해주세요");
+            //    return false;
+            //}
+            if ($("input:checkbox[name='check']").is(":checked")==false) {
+		        alert("체크박스를 선택하여 주십시오.");
+		        return false;
+	        }
 
             //이메일 공백 검사
             if($("#youEmail").val() == ""){
@@ -176,17 +184,16 @@
             }
 
             //닉네임 유효성 검사
-            let getNick = RegExp(/^[가-힣|a-z|A-Z]+/);
+            let getNick = RegExp(/^[가-힣|0-9]+$/);
             if(!getNick.test($("#youNickName").val())){
-                $("#youNickNameComment").text("닉네임 형식에 맞게 작성해주세요!");
+                $("#youNickNameComment").text("닉네임은 한글 숫자만 사용할 수 있습니다!");
                 $("#youNickName").val("");
                 return false;
             }
 
-
             //닉네임 중복 검사
             if(nickCheck == false){
-                $("#youNickNameComment").text("닉네임 중복 검사를 해주세요!");
+                $("#youNickNameComment").text("닉네임 중복 검사를 확인해주세요!");
                 return false;
             }
 
@@ -233,36 +240,25 @@
             //이름 유효성 검사
             let getName = RegExp(/^[가-힣]+$/);
             if(!getName.test($("#youName").val())){
-                $("#youNameComment").text("올바른 이름을 입력해주세요.!");
+                $("#youNameComment").text("이름은 한글만 사용할 수 있습니다!");
                 $("#youName").val("");
                 return false;
-            }            
+            }
 
             //휴대폰 번호 공백 확인
-            if($("#youPhone").val() == ""){
-                $("#youPhoneComment").text("휴대폰번호를 입력해주세요!");
-                return false;
-            }
-
-            //휴대폰 번호 유효성 검사
-            let getPhone = RegExp(/01[016789]-[^0][0-9]{2,3}-[0-9]{3,4}/);
-            if(!getPhone.test($("#youPhone").val())){
-                $("#youPhoneComment").text("휴대폰 번호가 올바르지 않습니다. (010-0000-0000)");
-                $("#youPhone").val("");
-                return false;
-            }
-
-            function checkOnlyOne(element) {
-  
-                const checkboxes = document.getElementsByName("check");
-
-                checkboxes.forEach((cb) => {
-                  cb.checked = false;
-                })
-
-                element.checked = true;
-                }
-
+            //if($("#youPhone").val() == ""){
+            //    $("#youPhoneComment").text("휴대폰번호(000-0000-0000)를 입력해주세요!");
+            //    return false;
+            //}
+//
+            ////휴대폰 번호 유효성 검사
+            //let getPhone = RegExp(/01[016789]-[^0][0-9]{2,3}-[0-9]{3,4}/);
+            //if(!getPhone.test($("#youPhone").val())){
+            //    $("#youPhoneComment").text("휴대폰 번호가 정확하지 않습니다. 올바른 휴대폰번호(000-0000-0000)를 입력해주세요!");
+            //    $("#youPhone").val("");
+            //    return false;
+            //}
+            
         }
         </script>
 </body>

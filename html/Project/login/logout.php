@@ -6,5 +6,5 @@
     unset($_SESSION['youName']);
     unset($_SESSION['youEmail']);
 
-    Header("Location:teamLogin.php"); 
+    Header("Location:login.php"); 
 ?>
