@@ -1,8 +1,5 @@
 <?php
     include "../connect/connect.php";
-    include "../connect/session.php";
-?>
-<?php
 
     $youName = $_POST['youName'];
     $youEmail = $_POST['youEmail'];
@@ -17,7 +14,6 @@
     // var_dump($findInfo);
     // echo "</pre>";
     if($findInfo['youName'] == $youName && $findInfo['youEmail'] == $youEmail && $findInfo['youPhone'] == $youPhone){
-        Header("Location: passChange.php");
     } else {
         echo "<script>alert('회원정보가 일치하지 않습니다!'); history.back(1)</script>";
     }
@@ -72,7 +68,7 @@
             </div>
         </section>
     </main>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
     function joinChecks(){
 
@@ -108,7 +104,7 @@
             return false;
         }
     }   
-</script> -->
+</script>
 
 </body>
 </html>

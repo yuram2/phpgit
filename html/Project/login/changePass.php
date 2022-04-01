@@ -1,4 +1,6 @@
 <?php
+    include "../connect/connect.php";
+    
     $youPass = $_POST['youPass'];
     $youPassC = $_POST['youPassC'];
     $youEmail = $_POST['youEmail'];
