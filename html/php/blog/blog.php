@@ -39,9 +39,6 @@
                             </fieldset>
                         </form>
                     </div>
-                    <div class="blog__btn">
-                        <a href="blogWrite.php">글쓰기</a>
-                    </div>
                     <div class="blog__cont">
 
 <?php
@@ -58,11 +55,11 @@
 <?php foreach($result as $blog){ ?>
     <article class="blog">
         <figuer class="blog__header">
-            <a href="blogView.php?blogID=<?=$blog['blogID']?>"><img src="../assets/img/blog/<?=$blog['blogImgFile']?>" alt="<?=$blog['blogCategory']?>"></a>
+            <a href="blogView.php?blogID=<?=$blog['blogID']?>" style="background-image:url(../assets/img/blog/<?=$blog['blogImgFile']?>)"></a>
         </figuer>
         <div class="blog__body">
             <span class="blog__cate"><?=$blog['blogCategory']?></span>
-            <div class="blog__title"><?=$blog['blogTitle']?></div>
+            <div class="blog__title"><a href="blogView.php?blogID=<?=$blog['blogID']?>"><?=$blog['blogTitle']?></a></div>
             <div class="blog__desc"><?=$blog['blogContents']?></div>
             <div class="blog__info">
                 <span class="author"><a href="#"><?=$blog['blogAuthor']?></a></span>
@@ -72,8 +69,10 @@
             </div>
         </div>
     </article>
-<?php } ?>
-                        
+<?php } ?>                        
+                    </div>
+                    <div class="blog__btn">
+                        <a href="blogWrite.php">글쓰기</a>
                     </div>
                     <div class="blog__pages">
                         <ul>

@@ -18,7 +18,6 @@
         echo "<script>alert('회원정보가 일치하지 않습니다!'); history.back(1)</script>";
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -39,29 +38,31 @@
     <!-- contents -->
     <main id="contents">
         <h2 class="ir_so">컨텐츠 영역</h2>
-        <section class="login-type gray">
+        <section class="join-type gray">
             <div class="member-form">
-                <h3>비밀번호 재설정</h3>
+                <h5>비밀번호 <em>재설정</em></h5>
+                <h3 class="ir_so">비밀번호 재설정</h3>
                 <form action="changePass.php" name="changePass" method="post" onsubmit="return joinChecks()">
                     <fieldset>
                         <legend class="ir_so">비밀번호 재설정</legend>
-                        <div class="login-box">
+                        <div class="join-box">
                             <?php
                                 echo "<div style='display:none'><label for='youEmail'>이메일주소</label><input type='email' name='youEmail' id='youEmail' value='".$youEmail."'></div>";
                             ?>
-                            <div>
-                                <label for="youPass">비밀번호</label><span class="comment" id="youPassComment"></span>
+                            <div class="input_box">
+                                <label for="youPass" class="ir_so">비밀번호</label><span class="comment" id="youPassComment"></span>
                                 <input type="password" id="youPass" name="youPass" maxlength="20" placeholder="비밀번호를 적어주세요!" autocomplete="off">
-                            </div>
-                            <div class="mt10">
-                                <label for="youPassC">비밀번호 확인</label><span class="comment" id="youPassCComment"></span>
+                            <div class="input_box">
+                            <div class="input_box">
+                                <label for="youPassC" class="ir_so">비밀번호 확인</label><span class="comment" id="youPassCComment"></span>
                                 <input type="password" id="youPassC" name="youPassC" maxlength="20" placeholder="다시 한번 비밀번호를 적어주세요!" autocomplete="off">
                             </div>
                         </div>
-                        <button id="findPassBtn" class="login-submit mt50" type="submit">비밀번호 재설정</button>
-                        <div class="other">
+                        <button id="joinbtn" class="join-submit" type="submit">비밀번호 재설정</button>
+                        <div class="find">
                             <a href="join.php">회원가입</a>
-                            <a href="findID.php">아이디 찾기</a> 
+                            <p>|</p>
+                            <a href="findID.php">아이디 찾기</a>
                         </div>
                     </fieldset>
                 </form>

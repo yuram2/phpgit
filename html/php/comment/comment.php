@@ -1,3 +1,7 @@
+<?php
+    include "../connect/connect.php";
+    include "../connect/session.php";
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -32,10 +36,10 @@
                 <div class="card__inner">
                     <article class="card">
                         <figure class="card__header">
-                            <img class="card__img" src="../assets/img/card01@2x.jpg" alt="이미지1">
+                            <img class="card__img" src="../assets/img/ip13.jpg" alt="이미지1">
                         </figure>
                         <div class="card__body">
-                            <h3 class="card__title">iPhone 13</h3>
+                            <h3 class="card__title">iPhone 13 mini</h3>
                             <p class="card__desc">비약적으로 강화된 카메라 시스템. 뛰어난 반응성으로 매일 하던 제스처에 전혀 새로운 감각을 선사하는 디스플레이. 스마트폰 사상 가장 빠른 칩. 독보적인 내구성. 획기적인 도약을 이뤄낸 배터리 성능까지. 이제 프로할 시간.</p>
                             <a class="card__btn" href="#">
                                 이벤트 시청하기
@@ -47,10 +51,10 @@
                     </article>
                     <article class="card">
                         <figure class="card__header">
-                            <img class="card__img" src="../assets/img/card02@2x.jpg" alt="이미지2">
+                            <img class="card__img" src="../assets/img/ip13.jpg" alt="이미지2">
                         </figure>
                         <div class="card__body">
-                            <h3 class="card__title">iPhone 13 Pro</h3>
+                            <h3 class="card__title">iPhone 13</h3>
                             <p class="card__desc">사상 최대 규모의 업그레이드를 거친 Apple의 프로급 카메라 시스템. 훨씬 더 많은 디테일을 포착하는 차원이 다른 하드웨어, 새로운 사진 및 영화 촬영 기법을 구현하는 놀랄 만큼 똑똑한 소프트웨어, 그리고 이 모든 걸 가능케 하는 압도적으로 빠른 칩까지. 당신이 촬영하는 방식까지 바꿔놓을 카메라, 지금 만나보세요.</p>
                             <a class="card__btn" href="#">
                                 사전 예약 하기
@@ -62,10 +66,10 @@
                     </article>
                     <article class="card">
                         <figure class="card__header">
-                            <img class="card__img" src="../assets/img/card03@2x.jpg" alt="이미지3">
+                            <img class="card__img" src="../assets/img/ip13.jpg" alt="이미지3">
                         </figure>
                         <div class="card__body">
-                            <h3 class="card__title">iPhone 13 Pro Max</h3>
+                            <h3 class="card__title">iPhone 13 Pro </h3>
                             <p class="card__desc">사이트를 만들기 위한 기초 강의입니다. 기본 코딩에 대한 감각을 익히고, 웹 표준을 준수하면서 코딩하는 방법을 익힙니다. 다양한 예제를 통해 사이트를 만드는 기본 강의입니다.</p>
                             <a class="card__btn" href="#">
                                 더 자세히 보기
@@ -108,7 +112,7 @@
                     <?php
                         include "../connect/connect.php";
 
-                        $sql = "SELECT * FROM myComment";
+                        $sql = "SELECT * FROM myComment ORDER BY commentID DESC LIMIT 10";
                         $result = $connect -> query($sql);
                         
                         $commentInfo = $result -> fetch_array(MYSQLI_ASSOC);
@@ -116,7 +120,24 @@
                         // echo "<pre>";
                         // var_dump($commentInfo );
                         // echo "<pre>";
-                        
+                        if($result){
+                            $count = $result -> num_rows;
+                            if($result > 0){
+                                for($i=1; $i<=$count; $i++){
+                                    $commentInfo = $result -> fetch_array(MYSQLI_ASSOC);
+                                    echo "<div class='list'>";
+                                    echo "<p class='comment__desc'>".$commentInfo['youText']."</p>";
+                                    echo "<div class='icon'>";
+                                    echo "<div class='comment__icon'>";
+                                    echo "<span class='face'><img src='../assets/img/face.png' alt='아이콘'></span>";
+                                    echo "<span class='name'>".$commentInfo['youName']."</span>";
+                                    echo "<span class='date'>".date('Y-m-d', $commentInfo['regTime'])."</span>";
+                                    echo "</div>";
+                                    echo "</div>";
+                                    echo "</div>";
+                                }
+                            }
+                        }
                     ?>
                 </div>
             </div>
